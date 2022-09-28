@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>window resize 된 값 불러오기</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <p class="des">
+        window resize 된 값 불러오기? 가 맞는지 모르겠지만 아무튼
+    </p>
+
+    <!-- script 시작 -->
+    <script>
+        /* [html 최초 로드 및 이벤트 상시 대기 실시] */
+        window.onload = function () {
+            console.log("[window 이벤트를 최초 실행 합니다!]");
+            // [이벤트 함수 호출]
+            // checkScreen();
+
+            /* [html 화면 사이즈 변경 이벤트 감지] */
+            window.onresize = function () {
+                setTimeout(function () {
+                    console.log("[window 사이즈가 바꼈습니다!]");
+                }, delay)
+                // [이벤트 함수 호출]
+                // checkScreen();
+            };
+
+            let delay = 200;
+            let timer = null;
+            const des = document.querySelector('.des')
+
+            window.addEventListener('resize', function () {
+                clearTimeout(timer);
+                timer = setTimeout(function () {
+                    console.log(innerWidth);
+                    if (window.innerWidth > 1024) {
+                        des.style.color = 'blue'
+                    } else if (window.innerWidth > 768) {
+                        des.style.color = 'red'
+                    } else {
+                        des.style.color = 'green'
+                    }
+                }, delay);
+            });
+
+        };
+        // resize 함수의 경우, resize 됐을 때 만! 불러와져서 그냥 width 값에 따라 style이 적용되게 변경해야할듯..?
+    </script>
+</body>
+
+</html>

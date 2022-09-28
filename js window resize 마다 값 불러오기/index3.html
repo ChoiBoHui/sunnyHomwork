@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>window resize 된 값 불러오기</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <p class="des">
+        window resize 된 값 불러오기? 가 맞는지 모르겠지만 아무튼
+    </p>
+
+    <!-- script 시작 -->
+    <script>
+        /*
+        [JS 요약 설명]
+        1. window.onload : 웹페이지 로드 완료 상태를 나타냅니다
+        2. window.onresize : 웹페이지 화면 사이즈 변경 상태를 감지합니다
+        3. screen 객체의 width와 height 프로퍼티는 사용자의 디스플레이 화면의 크기를 픽셀 단위로 반환합니다
+        4. screen.width와 screen.height는 현재 사용자의 모니터 화면의 크기를 반환합니다
+        5. 참고 : window.outerWidth와 window.outerHeight는 현재 브라우저 창의 크기를 반환합니다
+        */
+
+
+
+        /* [html 최초 로드 및 이벤트 상시 대기 실시] */
+        window.onload = function () {
+            console.log("");
+            console.log("[window 이벤트를 최초 실행 합니다!]");
+            console.log("");
+
+            // [이벤트 함수 호출]
+            checkScreenSize();
+        };
+
+
+        /* [html 화면 사이즈 변경 이벤트 감지] */
+        window.onresize = function () {
+            console.log("[window 사이즈가 바꼈습니다!]");
+
+            // [이벤트 함수 호출]
+            checkScreenSize();
+        };
+
+
+
+        /* [이벤트 함수 정의] */
+        function checkScreenSize() {
+            console.log("");
+            console.log("[checkScreenSize] : [start]");
+            console.log("");
+
+            //화면 해상도 확인
+            var screenWidth = screen.availWidth;
+            var screenHeight = screen.availHeight;
+            console.log("");
+            console.log("[checkScreenSize] : [width] : " + screenWidth);
+            console.log("[checkScreenSize] : [height] : " + screenHeight);
+            console.log("");
+
+            if (screenWidth >= 1201) {
+                console.log("");
+                console.log("[checkScreenSize] : [min-width: 1201px]");
+                console.log("");
+
+                alert("1201px");
+            }
+            else if (screenWidth >= 768) {
+                console.log("");
+                console.log("[checkScreenSize] : [min-width: 768px]");
+                console.log("");
+
+                alert("768px");
+            }
+            else if (screenWidth >= 540) {
+                console.log("");
+                console.log("[checkScreenSize] : [min-width: 540px]");
+                console.log("");
+
+                alert("540px");
+            }
+            else {
+                console.log("");
+                console.log("[checkScreenSize] : [NONE]");
+                console.log("");
+
+                alert("NONE");
+            }
+        };
+
+    </script>
+</body>
+
+</html>
