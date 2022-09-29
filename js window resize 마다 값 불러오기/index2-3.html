@@ -6,62 +6,66 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>window resize 된 값 불러오기</title>
-	<script>
-
-(function() {
-  //소스영역
-	let delay = 300;
-	let timer = null;
-	var des = document.querySelector('.des');
-	//var des = document.getElementsById('des');
-    
-    /* [html 최초 로드 및 이벤트 상시 대기 실시] */
-        window.onload = function () {
-            console.log("[window 이벤트를 최초 실행 합니다!]");
-
-            /* [html 화면 사이즈 변경 이벤트 감지] */
-            window.onresize = function () {
-                setTimeout(function () {
-                    console.log("[window 사이즈가 바꼈습니다!]");
-                }, delay)
-				return false;
-                // 현재 딜레이가 되고 있는중... 인데, 한번만 호출돼야 하는데, 자꾸 호출됨
-            };
-        };
-
-       
-        window.addEventListener('resize', function () {
-
-            clearTimeout(timer);
-            timer = setTimeout(function () {
-                console.log(innerWidth);
-                if (window.innerWidth > 1024) {
-				const des = document.querySelector('.des');
-                    des.style.color='blue';
-                } else if (window.innerWidth > 768) {
-				const des = document.querySelector('.des');
-                    des.style.color='red';
-                } else {
-				const des = document.querySelector('.des');
-                    des.style.color='green';
-                }
-            }, delay);
-        });
-})();
-
-
-    </script>
-    <style>
-
-    </style>
 </head>
 
 <body>
-	<p class="des" style="color:pink;">
+    <p class="des">
         window resize 된 값 불러오기? 가 맞는지 모르겠지만 아무튼
     </p>
     <!-- script 시작 -->
-    
+    <script>
+
+        (function () {
+            //변수
+            let delay = 300;
+            let timer = null;
+            var des = '';
+
+            /* [html 최초 로드 및 이벤트 상시 대기 실시] */
+            window.onload = function () {
+                console.log("[window 이벤트를 최초 실행 합니다!]");
+                clearTimeout(timer);
+                timer = setTimeout(function () {
+                    des = document.querySelector('.des');
+                    console.log(innerWidth);
+                    if (window.innerWidth > 1024) {
+                        des.style.color = 'blue';
+                    } else if (window.innerWidth > 768) {
+                        des.style.color = 'red';
+                    } else {
+                        des.style.color = 'green';
+                    }
+                });
+            };
+            // 화면 사이즈에 따라서 text컬러 변경됨, 
+            // 근데 사이즈를 움직이는 동안 바로바로 반영하면 콘솔에 innerWidth 겁나 찍히니까..
+            // 딱! 화면 사이즈 결정됐을때 한번만 찍히라고 delay 옵션 줬어요!
+            window.addEventListener('resize', function () {
+
+                clearTimeout(timer);
+                timer = setTimeout(function () {
+                    des = document.querySelector('.des');
+                    console.log(innerWidth);
+                    if (window.innerWidth > 1024) {
+                        des.style.color = 'blue';
+                    } else if (window.innerWidth > 768) {
+                        des.style.color = 'red';
+                    } else {
+                        des.style.color = 'green';
+                    }
+                }, delay);
+
+                /* [html 화면 사이즈 변경 이벤트 감지] */
+                window.onresize = function () {
+                    setTimeout(function () {
+                        console.log("[window 사이즈가 바꼈습니다!]");
+                    }, delay)
+                    return false;
+                    // 현재 딜레이가 되고 있는중... 인데... 콘솔에 자꾸 새로 바뀔때 여러번 찍힘...
+                };
+            });
+        })();
+    </script>
 </body>
 
 </html>
