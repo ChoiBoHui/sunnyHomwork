@@ -12,16 +12,17 @@
 </head>
 
 <body>
+    <!-- css 다 하고 나서 focus 됐을때!! 입력창이나 셀렉트 창 border 컬러 바뀌게 해야함!! -->
     <form name="frm" onsubmit="return check();" method="post">
         <div class="wrap">
             <!-- 01 작성자 정보(변하지 않는 input 있음) -->
-            <div class="box01">
+            <div class="box01 box">
                 <h2 class="title">작성자 정보</h2>
                 <div class="essential_text">"<span class="star">*</span>"필수 사항 입니다.</div>
                 <table>
                     <tr>
                         <th scope="row">
-                            <label for="nametag">작성자</label>
+                            <label for="nametag" class="essential_mark">작성자</label>
                         </th>
                         <td>
                             <input type="text" name="nametag" id="nametag" readonly="readonly" disabled="disabled"
@@ -30,55 +31,95 @@
                     </tr>
                     <tr>
                         <th scope="row">
-                            <label for="idtag">아이디</label>
+                            <label for="idtag" class="essential_mark">아이디</label>
                         </th>
                         <td>
                             <input type="text" name="idtag" id="idtag" readonly="readonly" disabled="disabled"
                                 value="123dfga">
                         </td>
                     </tr>
-                    <!-- 20 : 80 비율로 맞춰주세요 -->
                     <tr>
                         <th scope="row">
-                            <label for="mobile">연락처<span class="star">*</span></label>
+                            <label for="mobile" class="essential_mark">연락처<span class="star">*</span></label>
                         </th>
                         <td>
-                            <label for="mobile">휴대폰</label>
                             <input type="radio" id="mobile" value="mobile" name="telnumber" checked>
-                        </td>
-                        <td>
-                            <label for="tel">일반전화</label>
+                            <label for="mobile">휴대폰</label>
                             <input type="radio" id="tel" value="tel" name="telnumber">
-                        </td>
-                        <td>
-                            <input type="text" maxlength=11>
-                        </td>
-                        <td>
-                            <label for="sns">SNS 수신</label>
+                            <label for="tel">일반전화</label>
+                            <input type="text" maxlength=11 placeholder="-를 제외한 숫자만 입력">
+                            <!-- 얘 나중에 정규식 써줘서 숫자 이외에는 입력 안되게 해야함..! -->
                             <input type="checkbox" id="sns" value="sns">
+                            <label for="sns">SNS 수신</label>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- 02 내용 작성 영역 -->
+            <div class="box02 box">
+                <h2 class="title">작성 내용</h2>
+                <div class="essential_text">"<span class="star">*</span>"필수 사항 입니다.</div>
+                <table>
+                    <tr>
+                        <th scope="row">
+                            <label for="QNA_title" class="essential_mark">제목<span class="star">*</span></label>
+                        </th>
+                        <td>
+                            <input type="text" name="QNA_title" id="QNA_title" class="fullWidth">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <label for="QNA_field" class="essential_mark">분야<span class="star">*</span></label>
+                        </th>
+                        <td>
+                            <select name="QNA_field" id="QNA_field" class="choice_box fullWidth">
+                                <!-- js 짤때 value 가 null 이면 얼랏창으로 선택하라!! 고 띄우고, 해당 부분으로 이동?? 까지 가능하다면 해보기 -->
+                                <option value="">질문분야를 선택해주세요</option>
+                                <option value="">실업자/고용촉진</option>
+                                <option value="">재직자</option>
+                                <option value="">훈련기관 업무안내</option>
+                                <option value="">공인인증서 안내</option>
+                                <option value="">로그인/탈퇴</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <label for="private" class="essential_mark">공개여부</label>
+                        </th>
+                        <td class="inner_radio">
+                            <input type="radio" id="public" value="public" name="publicOrNot">
+                            <label for="public">공개</label>
+                            <input type="radio" id="private" value="private" name="publicOrNot" checked>
+                            <label for="private">비공개</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <label for="QNA_question" class="essential_mark">내용<span class="star">*</span></label>
+                        </th>
+                        <td>
+                            <textarea name="QNA_question" id="QNA_question" class="fullWidth QNA_question"
+                                maxlength="3000" required="required"></textarea>
+                            <div class="description">한글 1500자, 영문 3000자 까지 입력 가능합니다.</div>
                         </td>
                     </tr>
                 </table>
             </div>
 
 
-            <!-- <input type="text" name="text" size="20" style="width:100%; border: 0;">
-            <textarea name="content" rows="10" style="width:100%; border: 0; resize: none;"></textarea> -->
-
-            <!-- 02 내용 작성 영역 -->
-            <div class="box02">
-                <h2>작성 내용</h2>
-
-
-
-            </div>
-
-
             <!-- 03 개인정보 수집 동의 영역 -->
-            <div class="box03">
-                <h2>개인정보 수집 및 이용에 대한 동의</h2>
-
-                <input type="radio">
+            <div class="box03 box">
+                <h2 class="title">개인정보 수집 및 이용에 대한 동의</h2>
+                <div class="inner_radio">
+                    <label for="agree">개인정보 수집 및 이용에 동의 하십니까?</label>
+                    <input type="radio" id="agree" value="agree" name="agreeOrNot" checked>
+                    <label for="agree">동의합니다.</label>
+                    <input type="radio" id="disagree" value="disagree" name="agreeOrNot">
+                    <label for="disagree">동의하지 않습니다.</label>
+                </div>
             </div>
 
 

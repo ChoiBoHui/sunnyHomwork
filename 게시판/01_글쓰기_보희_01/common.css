@@ -1,7 +1,26 @@
-.wrap {width: 600px; margin: 0 auto; padding: 60px 0;}
-.title {font-size: 22px; font-weight: 700; margin-bottom: 10px;}
-.essential_text {font-size: 12px; font-weight: 400; text-align: right; margin-bottom: 10px;}
-.star {font-size: 20px;color: tomato; vertical-align: -6px;}
+/* * { outline: 1px solid #ddd; } */
 
-tr {border-bottom: 1px solid #ddd;}
-th {width: 20%; background: #efefef; border-right: 1px solid #ddd;}
+.wrap { width: 600px; margin: 0 auto; padding: 60px 0; } 
+.title { font-size: 22px; font-weight: 700; } 
+.essential_text { font-size: 12px; font-weight: 400; text-align: right; } 
+.essential_mark { display: flex; align-items: center; } 
+.star { font-size: 20px; color: tomato; vertical-align: -6px; } 
+.box { margin-bottom: 40px; } 
+.choice_box { border: 1px solid #ddd; padding: 6px 20px 7px 10px; } 
+.fullWidth {width: 100%;}
+.description {font-size: 12px; font-weight: 400;}
+
+
+table { font-size: 14px; } 
+table input:disabled { background: transparent; border: none; } 
+table input { background: transparent; border: 1px solid #ddd; padding: 6px 10px 7px 10px; } 
+tr { border-bottom: 1px solid #ddd; text-align: left; } 
+th { width: 20%; background: #efefef; border-right: 1px solid #ddd; padding-left: 20px; } 
+td { padding: 10px 10px; } 
+label { font-weight: 500; } 
+td label,input[type=radio],input[type=checkbox],input[type=submit],td select { cursor: pointer; } 
+input[type=radio]~input[type=radio],input[type=checkbox]~input[type=checkbox] { margin-left: 10px; } 
+input[type=radio] {margin: 10px auto;}
+
+
+.QNA_question {height: 100px; overflow: auto; resize: none; border: 1px solid #ddd; padding: 10px; margin-bottom: 10px;}
