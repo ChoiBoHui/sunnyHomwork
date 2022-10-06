@@ -106,6 +106,26 @@
                             <div class="description">한글 1500자, 영문 3000자 까지 입력 가능합니다.</div>
                         </td>
                     </tr>
+                    <tr>
+                        <th scope="row">
+                            <label for="attach_file" class="essential_mark">파일첨부</label>
+                        </th>
+                        <td>
+                            <div id="attach_file">
+                                <input type="file" name="attach_file" id="attach_file" value="">
+                                <p>이곳을 <span class="pt_bl">더블클릭</span> 또는 <span class="pt_bl">파을을 드래그</span> 하세요.</p>
+                            </div>
+                            <div class="description">
+                                이미지 가능 확장자 : jpg, gif, bmp
+                            </div>
+                            <div class="description">
+                                파일 가능 확장자 : txt, hwp, xls, ppt, doc, zip, pdf
+                            </div>
+                            <div class="description">
+                                첨부파일은 한 개 등록 가능하며 사이즈를 1mb로 제한합니다.
+                            </div>
+                        </td>
+                    </tr>
                 </table>
             </div>
 
@@ -113,6 +133,11 @@
             <!-- 03 개인정보 수집 동의 영역 -->
             <div class="box03 box">
                 <h2 class="title">개인정보 수집 및 이용에 대한 동의</h2>
+                <div class="personal_data_des">
+                    <p>HTD-Net 서비스 민원 상담을 위해 성명, 연락처를 수집 및 이용합니다.</p>
+                    <p>(수집목적 : HTD-Net 서비스 민원상담, 보유기간 : 5년)</p>
+                    <p>개인정보 수집 및 취급 위탁에 동의하시지 않는 경우 개선 및 제안요청 작성이 불가능합니다.</p>
+                </div>
                 <div class="inner_radio">
                     <label for="agree">개인정보 수집 및 이용에 동의 하십니까?</label>
                     <input type="radio" id="agree" value="agree" name="agreeOrNot" checked>
@@ -124,7 +149,7 @@
 
 
             <!-- 버튼 영역 -->
-            <div class="box04">
+            <div class="box04 box">
                 <a href="#!">뒤로가기</a>
                 <input type="submit" value="저장">
             </div>
