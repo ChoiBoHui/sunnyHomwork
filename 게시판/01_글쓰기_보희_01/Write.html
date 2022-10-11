@@ -6,15 +6,97 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>글쓰기 페이지</title>
-    <link rel="stylesheet" href="./reset.css">
-    <link rel="stylesheet" href="./common.css">
-    <!-- 스크립트는 우선 위에 짜보자! -->
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <!-- <script>
+        window.addEventListener('DOMContentLoaded', function () {
+            // 우편번호 찾기 찾기 화면을 넣을 element
+            var element_wrap = document.getElementById('wrap');
+
+            function foldDaumPostcode() {
+                // iframe을 넣은 element를 안보이게 한다.
+                element_wrap.style.display = 'none';
+            }
+
+            function sample3_execDaumPostcode() {
+                // 현재 scroll 위치를 저장해놓는다.
+                var currentScroll = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
+                new daum.Postcode({
+                    oncomplete: function (data) {
+                        // 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+                        // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+                        // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                        var addr = ''; // 주소 변수
+                        var extraAddr = ''; // 참고항목 변수
+
+                        //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+                        if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                            addr = data.roadAddress;
+                        } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                            addr = data.jibunAddress;
+                        }
+
+                        // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
+                        if (data.userSelectedType === 'R') {
+                            // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+                            // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                            if (data.bname !== '' && /[동|로|가]$/g.test(data.bname)) {
+                                extraAddr += data.bname;
+                            }
+                            // 건물명이 있고, 공동주택일 경우 추가한다.
+                            if (data.buildingName !== '' && data.apartment === 'Y') {
+                                extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                            }
+                            // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+                            if (extraAddr !== '') {
+                                extraAddr = ' (' + extraAddr + ')';
+                            }
+                            // 조합된 참고항목을 해당 필드에 넣는다.
+                            document.getElementById("sample3_extraAddress").value = extraAddr;
+
+                        } else {
+                            document.getElementById("sample3_extraAddress").value = '';
+                        }
+
+                        // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                        document.getElementById('sample3_postcode').value = data.zonecode;
+                        document.getElementById("sample3_address").value = addr;
+                        // 커서를 상세주소 필드로 이동한다.
+                        document.getElementById("sample3_detailAddress").focus();
+
+                        // iframe을 넣은 element를 안보이게 한다.
+                        // (autoClose:false 기능을 이용한다면, 아래 코드를 제거해야 화면에서 사라지지 않는다.)
+                        element_wrap.style.display = 'none';
+
+                        // 우편번호 찾기 화면이 보이기 이전으로 scroll 위치를 되돌린다.
+                        document.body.scrollTop = currentScroll;
+                    },
+                    // 우편번호 찾기 화면 크기가 조정되었을때 실행할 코드를 작성하는 부분. iframe을 넣은 element의 높이값을 조정한다.
+                    onresize: function (size) {
+                        element_wrap.style.height = size.height + 'px';
+                    },
+                    width: '100%',
+                    height: '100%'
+                }).embed(element_wrap);
+
+                // iframe을 넣은 element를 보이게 한다.
+                element_wrap.style.display = 'block';
+            }
+        })
+    </script> -->
+    <!-- js가 위에 있어서 안되는가 해서 onloaded 도 써보고 했는데.. 안된다.. 왜지..? -->
+    <script src="./js/common.js"></script>
+    <script src="./js/file.js"></script>
 </head>
 
 <body>
     <!-- css 다 하고 나서 focus 됐을때!! 입력창이나 셀렉트 창 border 컬러 바뀌게 해야함!! -->
     <form name="frm" onsubmit="return check();" method="post">
-        <div class="wrap">
+        <div class="Wrap">
+            <!-- map 안에 wrap 준게 따로 있어서 대문자로 바꿈 -->
             <!-- 01 작성자 정보(변하지 않는 input 있음) -->
             <div class="box01 box">
                 <h2 class="title">작성자 정보</h2>
@@ -47,10 +129,102 @@
                             <label for="mobile">휴대폰</label>
                             <input type="radio" id="tel" value="tel" name="telnumber">
                             <label for="tel">일반전화</label>
-                            <input type="text" maxlength=11 placeholder="-를 제외한 숫자만 입력">
+                            <input id="call" type="text" placeholder="-를 제외한 숫자만 입력" />
                             <!-- 얘 나중에 정규식 써줘서 숫자 이외에는 입력 안되게 해야함..! -->
                             <input type="checkbox" id="sns" value="sns">
                             <label for="sns">SNS 수신</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <label for="sample3_postcode" class="map">주소</label>
+                        </th>
+                        <td>
+                            <input type="text" id="sample3_postcode" placeholder="우편번호">
+                            <input type="button" onclick="sample3_execDaumPostcode()" value="우편번호 찾기"><br>
+                            <input type="text" id="sample3_address" placeholder="주소"><br>
+                            <input type="text" id="sample3_detailAddress" placeholder="상세주소">
+                            <input type="text" id="sample3_extraAddress" placeholder="참고항목">
+                            <div id="wrap"
+                                style="display:none;border:1px solid;width:100%;height:300px;margin:5px 0;position:relative">
+                                <img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnFoldWrap"
+                                    style="cursor:pointer;position:absolute;right:0px;top:-1px;z-index:1"
+                                    onclick="foldDaumPostcode()" alt="접기 버튼">
+                            </div>
+                            <script>
+                                var element_wrap = document.getElementById('wrap');
+
+                                function foldDaumPostcode() {
+                                    // iframe을 넣은 element를 안보이게 한다.
+                                    element_wrap.style.display = 'none';
+                                }
+
+                                function sample3_execDaumPostcode() {
+                                    // 현재 scroll 위치를 저장해놓는다.
+                                    var currentScroll = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
+                                    new daum.Postcode({
+                                        oncomplete: function (data) {
+                                            // 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+                                            // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+                                            // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                                            var addr = ''; // 주소 변수
+                                            var extraAddr = ''; // 참고항목 변수
+
+                                            //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+                                            if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                                                addr = data.roadAddress;
+                                            } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                                                addr = data.jibunAddress;
+                                            }
+
+                                            // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
+                                            if (data.userSelectedType === 'R') {
+                                                // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+                                                // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                                                if (data.bname !== '' && /[동|로|가]$/g.test(data.bname)) {
+                                                    extraAddr += data.bname;
+                                                }
+                                                // 건물명이 있고, 공동주택일 경우 추가한다.
+                                                if (data.buildingName !== '' && data.apartment === 'Y') {
+                                                    extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                                                }
+                                                // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+                                                if (extraAddr !== '') {
+                                                    extraAddr = ' (' + extraAddr + ')';
+                                                }
+                                                // 조합된 참고항목을 해당 필드에 넣는다.
+                                                document.getElementById("sample3_extraAddress").value = extraAddr;
+
+                                            } else {
+                                                document.getElementById("sample3_extraAddress").value = '';
+                                            }
+
+                                            // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                                            document.getElementById('sample3_postcode').value = data.zonecode;
+                                            document.getElementById("sample3_address").value = addr;
+                                            // 커서를 상세주소 필드로 이동한다.
+                                            document.getElementById("sample3_detailAddress").focus();
+
+                                            // iframe을 넣은 element를 안보이게 한다.
+                                            // (autoClose:false 기능을 이용한다면, 아래 코드를 제거해야 화면에서 사라지지 않는다.)
+                                            element_wrap.style.display = 'none';
+
+                                            // 우편번호 찾기 화면이 보이기 이전으로 scroll 위치를 되돌린다.
+                                            document.body.scrollTop = currentScroll;
+                                        },
+                                        // 우편번호 찾기 화면 크기가 조정되었을때 실행할 코드를 작성하는 부분. iframe을 넣은 element의 높이값을 조정한다.
+                                        onresize: function (size) {
+                                            element_wrap.style.height = size.height + 'px';
+                                        },
+                                        width: '100%',
+                                        height: '100%'
+                                    }).embed(element_wrap);
+
+                                    // iframe을 넣은 element를 보이게 한다.
+                                    element_wrap.style.display = 'block';
+                                }
+                            </script>
                         </td>
                     </tr>
                 </table>
@@ -77,11 +251,11 @@
                             <select name="QNA_field" id="QNA_field" class="choice_box fullWidth">
                                 <!-- js 짤때 value 가 null 이면 얼랏창으로 선택하라!! 고 띄우고, 해당 부분으로 이동?? 까지 가능하다면 해보기 -->
                                 <option value="">질문분야를 선택해주세요</option>
-                                <option value="">실업자/고용촉진</option>
-                                <option value="">재직자</option>
-                                <option value="">훈련기관 업무안내</option>
-                                <option value="">공인인증서 안내</option>
-                                <option value="">로그인/탈퇴</option>
+                                <option value="01">실업자/고용촉진</option>
+                                <option value="02">재직자</option>
+                                <option value="03">훈련기관 업무안내</option>
+                                <option value="04">공인인증서 안내</option>
+                                <option value="05">로그인/탈퇴</option>
                             </select>
                         </td>
                     </tr>
@@ -102,7 +276,7 @@
                         </th>
                         <td>
                             <textarea name="QNA_question" id="QNA_question" class="fullWidth QNA_question"
-                                maxlength="3000" required="required"></textarea>
+                                maxlength="3000"></textarea>
                             <div class="description">한글 1500자, 영문 3000자 까지 입력 가능합니다.</div>
                         </td>
                     </tr>
@@ -110,10 +284,42 @@
                         <th scope="row">
                             <label for="attach_file" class="essential_mark">파일첨부</label>
                         </th>
-                        <td>
-                            <div id="attach_file">
-                                <input type="file" name="attach_file" id="attach_file" value="">
-                                <p>이곳을 <span class="pt_bl">더블클릭</span> 또는 <span class="pt_bl">파을을 드래그</span> 하세요.</p>
+                        <td class="attach_file_body">
+                            <div class="file_box">
+                                <div class="bgimg_box bgimg01">
+                                    <div class="back_img">
+                                        <img src="./img/no_img.jpg" alt="">
+                                    </div>
+                                    <div class="filebox bs3-primary preview-image">
+                                        <input class="upload-name" value="파일선택" disabled="disabled"
+                                            style="width: 100px;">
+                                        <label for="input_file">+</label>
+                                        <input type="file" id="input_file" class="upload-hidden">
+                                    </div>
+                                </div>
+                                <div class="bgimg_box bgimg02">
+                                    <div class="back_img">
+                                        <img src="./img/no_img.jpg" alt="">
+                                    </div>
+                                    <div class="filebox bs3-primary preview-image">
+                                        <input class="upload-name" value="파일선택" disabled="disabled"
+                                            style="width: 100px;">
+
+                                        <label for="input_file">+</label>
+                                        <input type="file" id="input_file" class="upload-hidden">
+                                    </div>
+                                </div>
+                                <div class="bgimg_box bgimg03">
+                                    <div class="back_img">
+                                        <img src="./img/no_img.jpg" alt="">
+                                    </div>
+                                    <div class="filebox bs3-primary preview-image">
+                                        <input class="upload-name" value="파일선택" disabled="disabled"
+                                            style="width: 100px;">
+                                        <label for="input_file">+</label>
+                                        <input type="file" id="input_file" class="upload-hidden">
+                                    </div>
+                                </div>
                             </div>
                             <div class="description">
                                 이미지 가능 확장자 : jpg, gif, bmp
