@@ -1,0 +1,285 @@
+@charset "utf-8";
+
+.Wrap {
+  background: #f5f6f7;
+}
+#header {
+  text-align: center;
+  padding: 60px 0 20px;
+}
+#header h1 {
+  text-align: center;
+}
+#header h1 img {
+  width: 165px;
+  height: 32px;
+}
+
+.box {
+  width: 460px;
+  margin: 0 auto;
+}
+p {
+  margin: 19px 0 8px;
+  font-size: 14px;
+  font-weight: 500;
+}
+input {
+  background: #fff;
+  outline: 0;
+  border: none;
+}
+input[type="text"]:disabled {
+  background: #ccc;
+}
+.middle {
+  margin: 50px 0;
+}
+
+.out img {
+  width: 17px;
+  height: 20px;
+}
+.out {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  border: 1px solid #dadada;
+  width: 460px;
+  padding: 10px 20px 10px 14px;
+}
+.id_place {
+  font-size: 15px;
+  font-weight: 100;
+  color: #8e8e8e;
+}
+
+.birtho {
+  background: #fff;
+  width: 460px;
+  border: 1px solid #dadada;
+  padding: 10px 20px 10px 14px;
+}
+
+.datepicker {
+  width: 100px;
+}
+.y_m_d {
+  display: flex;
+  flex: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.out_y {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  border: 1px solid #dadada;
+  width: 146.7px;
+  padding: 10px 30px 10px 14px;
+}
+.out_y input {
+  width: 100%;
+}
+.out_y input::placeholder {
+  font-size: 15px;
+  font-weight: 100;
+  color: #8e8e8e;
+}
+.out_m {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  border: 1px solid #dadada;
+  width: 146.7px;
+  padding: 10px 30px 10px 14px;
+}
+.out_m select {
+  width: 100%;
+  border: none;
+}
+.out_d {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  border: 1px solid #dadada;
+  width: 146.7px;
+  padding: 10px 30px 10px 14px;
+}
+.out_d input {
+  width: 100%;
+}
+.out_d input::placeholder {
+  font-size: 15px;
+  font-weight: 100;
+  color: #8e8e8e;
+}
+
+.out_g {
+  background: #fff;
+  border: 1px solid #dadada;
+  padding: 10px 20px 10px 14px;
+}
+.out_g select {
+  width: 100%;
+  font-size: 15px;
+  border: none;
+}
+.thick {
+  height: 45px;
+  padding: 12px 20px 10px 14px;
+}
+.email .out {
+  font-size: 15px;
+  font-weight: 100;
+  color: #8e8e8e;
+}
+.email span {
+  font-size: 13px;
+  font-weight: 100;
+  color: #8e8e8e;
+}
+.email .inline {
+  display: inline-block;
+}
+
+#email1,
+#email2 {
+  width: 84px;
+  height: 20px;
+  font-size: 13px;
+}
+
+#email3 {
+  outline: none;
+  border: 1px solid #dadada;
+}
+
+.phone {
+  font-size: 15px;
+  font-weight: 100;
+  color: #8e8e8e;
+}
+
+.out_pp {
+  align-items: center;
+  background: #fff;
+  border: 1px solid #dadada;
+  width: 460px;
+  padding: 10px 20px 10px 14px;
+  margin-bottom: 10px;
+}
+
+.out_pp::placeholder {
+  font-size: 15px;
+  font-weight: 100;
+  color: #8e8e8e;
+}
+
+.gkgkgk {
+  display: flex;
+  justify-content: space-between;
+}
+
+.small {
+  display: inline-block;
+  width: 318px;
+}
+
+.give {
+  display: inline-block;
+  background: #03c75a;
+  color: #fff;
+  padding: 15px 20px;
+  margin-bottom: 10px;
+  border: 1px solid #f5f6f7;
+}
+
+#number {
+  width: 100%;
+  font-size: 15px;
+  border: none;
+}
+
+.join {
+  width: 460px;
+  margin: 30px auto 0 auto;
+  text-align: center;
+  background: #03c75a;
+}
+.join .joinn {
+  width: 100%;
+  background: #03c75a;
+  cursor: pointer;
+  padding: 15px 10px;
+  color: #fff;
+  font-weight: 500;
+}
+
+/* .join span{
+    display: block;
+    padding: 15px 10px;
+}
+.join a{
+    display: block;
+    color: #fff;
+    font-size: 17px;
+    width: 100%;
+} */
+
+#footer {
+  padding: 20px 8px;
+  width: 450px;
+  margin: 0 auto;
+}
+#footer .top {
+  margin-bottom: 10px;
+}
+#footer .top .alone {
+  font-weight: 500;
+}
+
+#footer .top ul {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+#footer .top ul li a {
+  display: inline-block;
+  font-size: 13px;
+  color: #7e7e7e;
+  font-weight: 200;
+}
+#footer .top > ul > li ~ li::before {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 11px;
+  background: #bbbbbb;
+  margin: 0 10px;
+}
+
+.bottom {
+  text-align: center;
+  font-size: 13px;
+  color: #7e7e7e;
+}
+
+.form_inline {
+  display: inline-block;
+}
+
+/* .birth2>div{    
+    width: 460px;
+    padding: 15px;
+    background: #fff;
+}
+ */
