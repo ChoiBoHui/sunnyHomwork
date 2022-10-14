@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>글쓰기 페이지</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <!-- <script src="./js/common.js"></script> -->
+</head>
+
+<body>
+    <div class="Wrap">
+        <!-- 01 작성자 정보 -->
+        <div class="box01 box">
+            <h2 class="title">작성자 정보</h2>
+            <table>
+                <tr>
+                    <th scope="row">작성자</th>
+                    <td>
+                        <p>주*경</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- 02 작성 내용 -->
+        <div class="box02 box">
+            <h2 class="title">작성 내용</h2>
+            <table>
+                <tr>
+                    <th scope="row">제목</th>
+                    <td>
+                        <p>앱에서 자꾸 로그인 하라고 나옵니다.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">분야</th>
+                    <td>
+                        <p>Q&A > HRD-Net 홈페이지/모바일 서비스/전자민원/지도점검/부정수급</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">내용</th>
+                    <td>
+                        <p>
+                            며칠동안 자동로그인, 아이디 저장에 체크하여도 그다음날 다시 로그인하라고 뜨는데
+                            왜 로그아웃이 되나요?<br />
+                            작년보다 앱이 더 불안정해진것같아 너무 불편하네요.<br />
+                            <br />
+                            그리고 워크넷 앱에 로그인 하고 hrd에 들어가면 로그인실패라고 뜨는데, 워크넷 접속하면 무조건 hrd 비밀번호가 자동으로 바뀝니까?
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">파일첨부</th>
+                    <td>
+                        <a href="https://github.com/ChoiBoHui/sunnyHomwork/raw/main/%EA%B2%8C%EC%8B%9C%ED%8C%90/kuqka.jpg"
+                            target="_blank" type="mime" download>
+                            <img src="https://github.com/ChoiBoHui/sunnyHomwork/raw/main/%EA%B2%8C%EC%8B%9C%ED%8C%90/kuqka.jpg"
+                                class="download-button" alt="test">
+                            이미지 다운로드
+                        </a>
+                        <!-- 뭐야.. 이거 왜 안됨..TT -->
+
+                    </td>
+                </tr>
+            </table>
+
+            <!-- 03 답변 내용 -->
+            <div class="box03 box">
+                <h2 class="title">답변 내용</h2>
+                <table>
+                    <tr>
+                        <th scope="row">답변자</th>
+                        <td>
+                            <p>홍*기</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">답변일자</th>
+                        <td>
+                            <p>2022-09-22</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">답변내용</th>
+                        <td>
+                            <p>
+                                안녕하세요.<br />
+                                한국고용정보원 능력개발팀입니다.<br />
+                                우선, HRD 이용에 불편을 드려 죄송합니다. <br />
+                                문의주신 내용에 대해서 말씀드리자면, 통합회원(원아이디)를 사용중이신 것으로 확인되고 있습니다.<br />
+                                계정의 비밀번호 정보가 정상적으로 동기화되지 못하셔서 자동으로 로그인이 풀리고 있는 상황인것 같습니다.<br />
+                                워크넷이나 hrd사이트에서 비밀번호 변경처리를 한번 해주시기 바랍니다.<br />
+                                실시간으로 워크넷을 기준으로 정보가 동기화처리되고 있으며, 말씀해주신 증상은 워크넷 사이트와 저희 hrd-net 사이트간 입력되어있는 비밀번호 정보가 달라
+                                충돌이 발생하여 로그인도 풀리며, 동기화처리도 완료되지 못하고 있는 상황인것 같습니다.<br />
+                                비밀번호를 한번 변경해주시면 정상적으로 이용 가능할 것 같습니다.<br />
+                                감사합니다.
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- 04 댓글 -->
+            <div class="box04">
+                <form name="frm" method="post">
+                    <textarea name="comments" id="comments" class="fullWidth comments" cols="300" rows="10"
+                        placeholder="300자 이내로 입력하세요."></textarea>
+                    <input type="submit">
+                </form>
+            </div>
+
+            <!-- 05 버튼 영역 -->
+            <div class="box05">
+                <button type="button" class="primary">삭제</button>
+                <button type="button">목록</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 스크립트 시작!! -->
+
+    <!-- <script>
+                function dataURLtoBlob(dataurl) {
+                    var arr = dataurl.split(','),
+                        mime = arr[0].match(/:(.*?);/)[1],
+                        bstr = atob(arr[1]),
+                        n = bstr.length,
+                        u8arr = new Uint8Array(n);
+                    while (n--) {
+                        u8arr[n] = bstr.charCodeAt(n);
+                    }
+                    return new Blob([u8arr], {
+                        type: mime
+                    });
+                }
+                function downloadImg(imgSrc) {
+                    var image = new Image();
+                    image.crossOrigin = "anonymous";
+                    image.src = imgSrc;
+                    var fileName = image.src.split("/").pop();
+                    image.onload = function () {
+                        var canvas = document.createElement('canvas');
+                        canvas.width = this.width;
+                        canvas.height = this.height;
+                        canvas.getContext('2d').drawImage(this, 0, 0);
+                        if (typeof window.navigator.msSaveBlob !== 'undefined') {
+                            window.navigator.msSaveBlob(블롭, fileName);
+                        } else {
+                            var link = document.createElement('a');
+                            link.href = "https://github.com/ChoiBoHui/sunnyHomwork/raw/main/%EA%B2%8C%EC%8B%9C%ED%8C%90/kuqka.jpg";
+                            link.download = fileName;
+                            link.click();
+                        };
+                    };
+                }
+            </script> -->
+    <!-- 이미지.. 왜 다운이 안되는것이냐.. 깃허브 서버라서 그런것이냐... -->
+    <!-- <script>
+        const $downloadButton = document.querySelector('.download-button');
+
+        $downloadButton.href = "https://github.com/ChoiBoHui/sunnyHomwork/raw/main/%EA%B2%8C%EC%8B%9C%ED%8C%90/kuqka.jpg" // 다운로드 링크 지정
+        $downloadButton.download = `recording_${new Date().toDateString()}.webm`; // 다운로드 파일명 설정
+    </script> -->
+    <!-- <script>
+        window.addEventListener('DOMContentLoaded', function () {
+            var a = document.createElement('a');
+            a.href = 이미지주소;
+            a.download = 다운로드파일이름;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        })
+    </script> -->
+</body>
+
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pagination example</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.css" />
+</head>
+
+<body>
+    <!-- 플러그인 냅따 꽂아서 하는건데... 밑에 dataSource 부분 잘 짜주면.. 가능하지 않을까..? -->
+    <div>
+        <table id="data-container">
+        </table>
+        <div id="pagination"></div>
+    </div>
+
+    <script>
+        $(function () {
+            let container = $('#pagination');
+            container.pagination({
+                // 데이터 영역!!!!===================================시작
+                dataSource: [
+                    { num: "5060", title: '<a href="#!">' + "과정이 담아두기가 안돼요." + '</a>', state: "접수", writer: "구*준", date: "2022-10-11", hits: "0" },
+                    { num: "5059", title: '<img src="./img/icoLock.png" class="rock">' + "국민내일배움카드 훈련 결제방법 알려주세요", state: "완료", writer: "오*영", date: "2022-10-10", hits: "2" },
+                    { num: "5058", title: '<a href="#!">' + "과정이 담아두기가 안돼요." + '</a>', state: "접수", writer: "구*준", date: "2022-10-11", hits: "0" },
+                    { num: "5057", title: '<img src="./img/icoLock.png" class="rock">' + "국민내일배움카드 훈련 결제방법 알려주세요", state: "완료", writer: "오*영", date: "2022-10-10", hits: "2" },
+                    { num: "5056", title: '<a href="#!">' + "과정이 담아두기가 안돼요." + '</a>', state: "접수", writer: "구*준", date: "2022-10-11", hits: "0" },
+                    { num: "5055", title: '<img src="./img/icoLock.png" class="rock">' + "국민내일배움카드 훈련 결제방법 알려주세요", state: "완료", writer: "오*영", date: "2022-10-10", hits: "2" },
+                    { num: "5054", title: '<a href="#!">' + "과정이 담아두기가 안돼요." + '</a>', state: "접수", writer: "구*준", date: "2022-10-11", hits: "0" },
+                    { num: "5053", title: '<img src="./img/icoLock.png" class="rock">' + "국민내일배움카드 훈련 결제방법 알려주세요", state: "완료", writer: "오*영", date: "2022-10-10", hits: "2" },
+                    { num: "5052", title: '<a href="#!">' + "과정이 담아두기가 안돼요." + '</a>', state: "접수", writer: "구*준", date: "2022-10-11", hits: "0" },
+                    { num: "5051", title: '<img src="./img/icoLock.png" class="rock">' + "국민내일배움카드 훈련 결제방법 알려주세요", state: "완료", writer: "오*영", date: "2022-10-10", hits: "2" },
+                    { num: "5050", title: '<a href="#!">' + "과정이 담아두기가 안돼요." + '</a>', state: "접수", writer: "구*준", date: "2022-10-11", hits: "0" },
+                    { num: "5049", title: '<img src="./img/icoLock.png" class="rock">' + "국민내일배움카드 훈련 결제방법 알려주세요", state: "완료", writer: "오*영", date: "2022-10-10", hits: "2" },
+                    { num: "5048", title: '<a href="#!">' + "과정이 담아두기가 안돼요." + '</a>', state: "접수", writer: "구*준", date: "2022-10-11", hits: "0" },
+                    { num: "5047", title: '<img src="./img/icoLock.png" class="rock">' + "국민내일배움카드 훈련 결제방법 알려주세요", state: "완료", writer: "오*영", date: "2022-10-10", hits: "2" },
+                    { num: "5046", title: '<a href="#!">' + "과정이 담아두기가 안돼요." + '</a>', state: "접수", writer: "구*준", date: "2022-10-11", hits: "0" },
+                    { num: "5045", title: '<img src="./img/icoLock.png" class="rock">' + "국민내일배움카드 훈련 결제방법 알려주세요", state: "완료", writer: "오*영", date: "2022-10-10", hits: "2" },
+                    { num: "5044", title: '<a href="#!">' + "과정이 담아두기가 안돼요." + '</a>', state: "접수", writer: "구*준", date: "2022-10-11", hits: "0" },
+                    { num: "5043", title: '<img src="./img/icoLock.png" class="rock">' + "국민내일배움카드 훈련 결제방법 알려주세요", state: "완료", writer: "오*영", date: "2022-10-10", hits: "2" },
+                    { num: "5042", title: '<a href="#!">' + "과정이 담아두기가 안돼요." + '</a>', state: "접수", writer: "구*준", date: "2022-10-11", hits: "0" },
+                    { num: "5041", title: '<img src="./img/icoLock.png" class="rock">' + "국민내일배움카드 훈련 결제방법 알려주세요", state: "완료", writer: "오*영", date: "2022-10-10", hits: "2" },
+                    { num: "5040", title: '<a href="#!">' + "과정이 담아두기가 안돼요." + '</a>', state: "접수", writer: "구*준", date: "2022-10-11", hits: "0" },
+                    { num: "5039", title: '<img src="./img/icoLock.png" class="rock">' + "국민내일배움카드 훈련 결제방법 알려주세요", state: "완료", writer: "오*영", date: "2022-10-10", hits: "2" },
+                    { num: "5038", title: '<a href="#!">' + "과정이 담아두기가 안돼요." + '</a>', state: "접수", writer: "구*준", date: "2022-10-11", hits: "0" },
+                    { num: "5037", title: '<img src="./img/icoLock.png" class="rock">' + "국민내일배움카드 훈련 결제방법 알려주세요", state: "완료", writer: "오*영", date: "2022-10-10", hits: "2" },
+                    { num: "5036", title: '<a href="#!">' + "과정이 담아두기가 안돼요." + '</a>', state: "접수", writer: "구*준", date: "2022-10-11", hits: "0" },
+                    { num: "5035", title: '<img src="./img/icoLock.png" class="rock">' + "국민내일배움카드 훈련 결제방법 알려주세요", state: "완료", writer: "오*영", date: "2022-10-10", hits: "2" },
+                    { num: "5034", title: '<a href="#!">' + "과정이 담아두기가 안돼요." + '</a>', state: "접수", writer: "구*준", date: "2022-10-11", hits: "0" },
+                    { num: "5033", title: '<img src="./img/icoLock.png" class="rock">' + "국민내일배움카드 훈련 결제방법 알려주세요", state: "완료", writer: "오*영", date: "2022-10-10", hits: "2" },
+                    { num: "5032", title: '<a href="#!">' + "과정이 담아두기가 안돼요." + '</a>', state: "접수", writer: "구*준", date: "2022-10-11", hits: "0" },
+                    { num: "5031", title: '<img src="./img/icoLock.png" class="rock">' + "국민내일배움카드 훈련 결제방법 알려주세요", state: "완료", writer: "오*영", date: "2022-10-10", hits: "2" },
+                    { num: "5030", title: '<a href="#!">' + "과정이 담아두기가 안돼요." + '</a>', state: "접수", writer: "구*준", date: "2022-10-11", hits: "0" },
+                    { num: "5029", title: '<img src="./img/icoLock.png" class="rock">' + "국민내일배움카드 훈련 결제방법 알려주세요", state: "완료", writer: "오*영", date: "2022-10-10", hits: "2" },
+                    { num: "5028", title: '<a href="#!">' + "과정이 담아두기가 안돼요." + '</a>', state: "접수", writer: "구*준", date: "2022-10-11", hits: "0" },
+                    { num: "5027", title: '<img src="./img/icoLock.png" class="rock">' + "국민내일배움카드 훈련 결제방법 알려주세요", state: "완료", writer: "오*영", date: "2022-10-10", hits: "2" },
+                    { num: "5026", title: '<a href="#!">' + "과정이 담아두기가 안돼요." + '</a>', state: "접수", writer: "구*준", date: "2022-10-11", hits: "0" },
+                    { num: "5025", title: '<img src="./img/icoLock.png" class="rock">' + "국민내일배움카드 훈련 결제방법 알려주세요", state: "완료", writer: "오*영", date: "2022-10-10", hits: "2" },
+                    { num: "5024", title: '<a href="#!">' + "과정이 담아두기가 안돼요." + '</a>', state: "접수", writer: "구*준", date: "2022-10-11", hits: "0" },
+                    { num: "5023", title: '<img src="./img/icoLock.png" class="rock">' + "국민내일배움카드 훈련 결제방법 알려주세요", state: "완료", writer: "오*영", date: "2022-10-10", hits: "2" },
+                    { num: "5022", title: '<a href="#!">' + "과정이 담아두기가 안돼요." + '</a>', state: "접수", writer: "구*준", date: "2022-10-11", hits: "0" },
+                    { num: "5021", title: '<img src="./img/icoLock.png" class="rock">' + "국민내일배움카드 훈련 결제방법 알려주세요", state: "완료", writer: "오*영", date: "2022-10-10", hits: "2" },
+                    { num: "5020", title: '<a href="#!">' + "과정이 담아두기가 안돼요." + '</a>', state: "접수", writer: "구*준", date: "2022-10-11", hits: "0" },
+                    { num: "5019", title: '<img src="./img/icoLock.png" class="rock">' + "국민내일배움카드 훈련 결제방법 알려주세요", state: "완료", writer: "오*영", date: "2022-10-10", hits: "2" },
+                ],
+                // 데이터 영역!!!!===================================끝
+                callback: function (data, pagination) {
+                    var dataHtml = '<tbody>';
+
+                    $.each(data, function (index, item) {
+                        dataHtml += '<tr>'
+                            // 이 밑으로 테이블에 들어가는 요소들 하나씩 td 안에 넣어주면 됨
+                            + '<td>'
+                            + item.num
+                            + '</td>'
+                            + '<td>'
+                            + item.title
+                            + '</td>'
+                            + '<td>'
+                            + item.state
+                            + '</td>'
+                            + '<td>'
+                            + item.writer
+                            + '</td>'
+                            + '<td>'
+                            + item.date
+                            + '</td>'
+                            + '<td>'
+                            + item.hits
+                            + '</td>'
+                            // 이 위에까지만 td로 넣으시오
+                            + '</tr>';
+                    });
+
+                    dataHtml += '</tbody>';
+
+                    $("#data-container").html(dataHtml);
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

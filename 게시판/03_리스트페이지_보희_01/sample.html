@@ -1,0 +1,183 @@
+<div class="contentArea" id="contentArea">
+    <div class="searchBox">
+        <fieldset>
+            <legend>질문 검색</legend>
+            <dl>
+                <dt><label class="labelRadio">공개여부</label></dt>
+                <dd>
+                    <div class="ui_radioBox">
+                        <input type="radio" id="openYn1" name="searchOpenYn" value="" checked="checked" title="선택됨">
+                        <label for="openYn1" class="on">전체</label>
+                    </div>
+                    <div class="ui_radioBox">
+                        <input type="radio" id="openYn2" name="searchOpenYn" value="Y" title="">
+                        <label for="openYn2">공개</label>
+                    </div>
+                    <div class="ui_radioBox">
+                        <input type="radio" id="openYn3" name="searchOpenYn" value="N" title="">
+                        <label for="openYn3">비공개</label>
+                    </div>
+                </dd>
+                <dt><label for="searchCtgCd4">구분</label></dt>
+                <dd><select name="searchCtgCd4" title="구분 항목 선택" id="searchCtgCd4" class=" selectBox searchSelect01"
+                        selected="selected">
+
+                        <option value="TBOX20170905000708">실업자계좌제훈련/훈련상담/실업자국기직종훈련/국민내일배움카드/K-디지털트레이닝</option>
+
+                        <option value="TBOX20070301000052">근로자훈련/국민내일배움카드/K-디지털기초역량/중장년새출발카운슬링</option>
+
+                        <option value="TBOX20070301000053">사업주지원훈련/지역실업자/지산일</option>
+
+                        <option value="TBOX20170905000709">일학습병행제/과정평가형</option>
+
+                        <option value="TBOX20150210000593">컨소시엄훈련/지역산업맞춤형/고용디딤돌/청년취업아카데미</option>
+
+                        <option value="TBOX20111013000426">지도점검/부정수급/전자민원서비스</option>
+
+                        <option value="TBOX20090402000000">HRD-Net 홈페이지/모바일 서비스/전자민원/지도점검/부정수급</option>
+
+                        <option value="TBOX20141118000588">통합심사/이수자평가/인증평가/훈련교사</option>
+
+                    </select>
+                </dd>
+
+                <dt><label for="searchGbn">검색</label></dt>
+                <dd>
+                    <select class=" selectBox searchSelect02" id="searchGbn" name="searchGbn">
+                        <option value="all">전체</option>
+                        <option value="title">제목</option>
+                        <option value="userNm">작성자</option>
+                    </select>
+                    <label for="searchText">검색어</label>
+                    <input type="text" class="w41p" id="searchText" name="searchText" placeholder="검색어를 입력하세요."
+                        title="검색어" value="">
+                    <div class="btnArea btnGroup"><button type="button" class="searchBtn" onclick="fn_search('1');"
+                            title="검색">검색</button></div>
+                </dd>
+            </dl>
+        </fieldset>
+    </div>
+
+    <div class="qnaArea">
+        <div class="sortArea">
+            <p class="totalNum">전체 <strong>5,060</strong> 건</p>
+            <div class="selectViewArea">
+                <div class="selectView">
+                    <select name="pageRow" id="pageRow" title="페이지당 조회건수" class="selectBox h30">
+                        <option value="10" selected="selected">10개씩</option>
+                        <option value="20">20개씩</option>
+                        <option value="30">30개씩</option>
+                        <option value="50">50개씩</option>
+                        <option value="100">100개씩</option>
+                    </select>
+                    <button type="button" class="btn_view" id="viewPageRow"
+                        style="height:30px;border:1px solid #ddd;font-size:12px;text-align:center;width:50px;"
+                        title="보기">보기</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="tableArea">
+            <table class="list">
+                <caption>질문과 답변 표로 번호, 제목, 처리상태, 작성자, 등록일, 조회수 등의 정보 제공</caption>
+                <colgroup>
+                    <col style="width: 80px;" class="forPC">
+                    <col style="width: auto;">
+                    <col style="width: 130px;">
+                    <col style="width: 130px;" class="forPC">
+                    <col style="width: 120px;" class="forPC">
+                    <col style="width: 110px;" class="forPC">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th scope="col" class="forPC">번호</th>
+                        <th scope="col">제목</th>
+                        <th scope="col">처리상태</th>
+                        <th scope="col" class="forPC">작성자</th>
+                        <th scope="col" class="forPC">등록일</th>
+                        <th scope="col" class="last forPC">조회수</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="forPC">5060</td>
+                        <td class="tl">
+                            <!-- <span class="icoLock">비밀글</span> -->
+                            <a href="javascript:void(0);" onclick="fn_goDetail('TCKT20221011400102');">과정이 담아두기가
+                                안되요.</a>
+                            <span class="icoNew">새글</span>
+                        </td>
+                        <td>
+                            접수
+                        </td>
+                        <td class="forPC">
+                            구*준
+                        </td>
+                        <td class="forPC">2022-10-11</td>
+                        <td class="last forPC">0</td>
+                    </tr>
+                    <tr>
+                        <td class="forPC">5052</td>
+                        <td class="tl">
+                            <img src="/new_images/common/icoLock.png"
+                                style="display: inline-block;vertical-align: middle;width: 13px;height: 15px;margin: 0 10px 3px 0;font-size: 0;line-height: 0;"
+                                alt="비밀글 국민내일배움카드 훈련 결제방법 좀 알려주세요">
+                            <!-- <span class="icoLock">비밀글</span> -->
+                            국민내일배움카드 훈련 결제방법 좀 알려주세요
+                        </td>
+                        <td>
+                            완료
+                        </td>
+                        <td class="forPC">
+                            오*영
+                        </td>
+                        <td class="forPC">2022-10-09</td>
+                        <td class="last forPC">2</td>
+                    </tr>
+                    <tr>
+                        <td class="forPC">5051</td>
+                        <td class="tl">
+                            <img src="/new_images/common/icoLock.png"
+                                style="display: inline-block;vertical-align: middle;width: 13px;height: 15px;margin: 0 10px 3px 0;font-size: 0;line-height: 0;"
+                                alt="비밀글 배움카드 우편수령 신청했지만 너무 안와서 빠르게 은행 가서 수령받고 싶어요.">
+                            <!-- <span class="icoLock">비밀글</span> -->
+                            배움카드 우편수령 신청했지만 너무 안와서 빠르게 은행 가서 수령받고 싶어요.
+                        </td>
+                        <td>
+                            완료
+                        </td>
+                        <td class="forPC">
+                            우*형
+                        </td>
+                        <td class="forPC">2022-10-08</td>
+                        <td class="last forPC">1</td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- 220527 글쓰기 버튼 추가 -->
+            <div class="btnGroup btType1 tr"><button type="button" class="searchBtn" onclick="fn_goRegist();">질문
+                    등록</button></div>
+            <!-- paging : pc -->
+
+            <div class="pagenation">
+                <a href="?pageIndex=1" onclick="fn_search(1);return false; " class="pb2 prev" title="처음">처음</a><a
+                    href="?pageIndex=1" onclick="fn_search(1);return false; " class="pb prev" title="이전">이전</a><a
+                    href="javascript:void(0);" class="on" title="선택됨">1</a><a href="?pageIndex=2"
+                    onclick="fn_search(2);return false; ">2</a><a href="?pageIndex=3"
+                    onclick="fn_search(3);return false; ">3</a><a href="?pageIndex=4"
+                    onclick="fn_search(4);return false; ">4</a><a href="?pageIndex=5"
+                    onclick="fn_search(5);return false; ">5</a><a href="?pageIndex=6"
+                    onclick="fn_search(6);return false; ">6</a><a href="?pageIndex=7"
+                    onclick="fn_search(7);return false; ">7</a><a href="?pageIndex=8"
+                    onclick="fn_search(8);return false; ">8</a><a href="?pageIndex=9"
+                    onclick="fn_search(9);return false; ">9</a><a href="?pageIndex=10"
+                    onclick="fn_search(10);return false; ">10</a><a href="?pageIndex=11"
+                    onclick="fn_search(11);return false; " class="pb next" title="다음">다음</a><a href="?pageIndex=506"
+                    onclick="fn_search(506);return false; " class="pb2 next" title="맨끝">맨끝</a>
+
+            </div>
+
+            <!-- //paging : pc -->
+        </div>
+    </div>
+</div>

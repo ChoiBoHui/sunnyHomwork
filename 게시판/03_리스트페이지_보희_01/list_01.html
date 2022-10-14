@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03_list page</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <script src="./js/common.js"></script>
+</head>
+
+<body>
+    <div class="Wrap">
+        <fieldset class="box">
+            <legend>질문 검색</legend>
+            <dl>
+                <dt><label for="open">공개여부</label></dt>
+                <dd>
+                    <div class="radiobox">
+                        <input type="radio" id="open" value="open" name="open" checked>
+                        <label for="open">전체</label>
+                        <input type="radio" id="public" value="public" name="open">
+                        <label for="public">공개</label>
+                        <input type="radio" id="private" value="private" name="open">
+                        <label for="private">비공개</label>
+                    </div>
+                </dd>
+
+                <dt><label for="field">구분</label></dt>
+                <dd>
+                    <select name="field" id="field" class="field choice_box">
+                        <option value="01" selected="selected">실업자/고용촉진</option>
+                        <option value="02">재직자</option>
+                        <option value="03">훈련기관 업무안내</option>
+                        <option value="04">공인인증서 안내</option>
+                        <option value="05">로그인/탈퇴</option>
+                    </select>
+                </dd>
+
+                <dt><label for="search">검색</label></dt>
+                <dd>
+                    <select name="" id="" class="search_key choice_box">
+                        <option value="01" selected="selected">전체</option>
+                        <option value="02">제목</option>
+                        <option value="03">작성자</option>
+                    </select>
+                    <input type="text" name="searchbox" id="searchbox" class="searchbox" placeholder="검색어를 입력하세요.">
+                    <input type="submit" value="검색" class="primary">
+                </dd>
+            </dl>
+        </fieldset>
+
+        <div class="qnaArea">
+            <div class="sortArea">
+                <p class="totalNum">전체 <strong>5,060</strong> 건</p>
+                <div class="pagebox">
+                    <select name="pageRow" id="pageRow" title="페이지당 조회건수" class="pageRow choice_box">
+                        <option value="10" selected="selected">10개씩</option>
+                        <option value="20">20개씩</option>
+                        <option value="30">30개씩</option>
+                    </select>
+                    <button type="button" class="btn_view" id="btn_view" title="보기">보기</button>
+                </div>
+            </div>
+            <div class="tableArea box">
+                <table class="qnalist">
+                    <colgroup>
+                        <col style="width: 10%;">
+                        <col style="width: auto;">
+                        <col style="width: 13%;">
+                        <col style="width: 13%;">
+                        <col style="width: 16%;">
+                        <col style="width: 13%;">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th scope="col">번호</th>
+                            <th scope="col">제목</th>
+                            <th scope="col">처리상태</th>
+                            <th scope="col">작성자</th>
+                            <th scope="col">등록일</th>
+                            <th scope="col">조회수</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>5060</td>
+                            <td class="qna_title">
+                                <a href="" onclick="">과정이 담아두기가
+                                    안돼요.</a>
+                            </td>
+                            <td>접수</td>
+                            <td>구*준</td>
+                            <td>2022-10-11</td>
+                            <td>0</td>
+                        </tr>
+                        <tr>
+                            <td>5052</td>
+                            <td class="qna_title">
+                                <img src="./img/icoLock.png" class="rock">
+                                <!-- <span class="icoLock">비밀글</span> -->
+                                국민내일배움카드 훈련 결제방법 알려주세요
+                            </td>
+                            <td>완료</td>
+                            <td>오*영</td>
+                            <td>2022-10-09</td>
+                            <td>2</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="btnArea box">
+                <a href="#!" class="primary">질문 등록</a>
+                <!-- 이거 누르면 write 페이지로 이동 -->
+            </div>
+            <div class="pagination">
+                <a href="#!"><i class="xi-fast-backward"></i></a>
+                <a href="#!"><i class="xi-step-backward"></i></a>
+                <ul class="pagination_ul">
+                    <!-- 안에 a 태그를 넣든 어떻게 해서 페이지 이동하게 만들기 -->
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                    <li>6</li>
+                    <li>7</li>
+                    <li>8</li>
+                    <li>9</li>
+                    <li>10</li>
+                </ul>
+                <a href="#!"><i class="xi-step-forward"></i></a>
+                <a href="#!"><i class="xi-fast-forward"></i></a>
+            </div>
+        </div>
+    </div>
+    <!-- script 시작!! -->
+    <script>
+
+    </script>
+</body>
+
+</html>

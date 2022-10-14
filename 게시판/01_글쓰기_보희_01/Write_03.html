@@ -286,43 +286,42 @@
                         </th>
                         <td class="attach_file_body">
                             <div class="file_box">
-                                <div class="bgimg_box bgimg01">
-                                    <div class="back_img">
-                                        <img src="./img/no_img.jpg" alt="">
-                                    </div>
-                                    <div class="filebox bs3-primary preview-image">
-                                        <input class="upload-name" value="파일선택" disabled="disabled"
-                                            style="width: 100px;">
-                                        <label for="input_file">+</label>
-                                        <input type="file" id="input_file" class="upload-hidden">
-                                    </div>
-                                    <!-- 첨부파일 삭제 테스트 -->
-                                    <!-- <div class="delete">
-                                        <button class="btn_del" title="첨부파일 삭제" onclick="delFile(this)">첨부파일 삭제</button>
+                                <div class="file-wrapper flie-wrapper-area">
+                                    <!-- <div class="float-left">
+                                        <span class="label-plus"><i class="fas fa-plus"></i></span>
+                                        <input type="file" name="file" id="file" class="upload-box upload-plus"
+                                            accept="image/*">
+                                        <div id="preview"></div>
+                                        <div class="file-edit-icon">
+                                            <a href="#" class="preview-edit">수정</a>
+                                            <a href="#" class="preview-de">삭제</a>
+                                        </div>
                                     </div> -->
-                                </div>
-                                <div class="bgimg_box bgimg02">
-                                    <div class="back_img">
-                                        <img src="./img/no_img.jpg" alt="">
-                                    </div>
-                                    <div class="filebox bs3-primary preview-image">
-                                        <input class="upload-name" value="파일선택" disabled="disabled"
-                                            style="width: 100px;">
 
-                                        <label for="input_file">+</label>
-                                        <input type="file" id="input_file" class="upload-hidden">
+                                    <div id="contentwrap2">
+
+                                        <form id="formdata">
+                                            <h3> 제목 : <input type="text" placeholder="제목" id="subject" name="subject">
+                                            </h3>
+                                            <h3> 내용 : <input type="text" placeholder="내용" id="writecontent"
+                                                    name="content"></h3>
+                                            <h3 class="fileuploder"> 파일첨부 :
+                                                <label for="ex_file">파일 등록</label>
+                                                <input type="file" id="ex_file" name="filename" multiple>
+                                            </h3>
+                                        </form>
+
+                                        <ul class="lst_thumb">
+
+                                        </ul>
+
+                                        <button type="button" class="reg">등록</button>
+                                        <button type="button" class="backbtn">취소</button>
+
                                     </div>
-                                </div>
-                                <div class="bgimg_box bgimg03">
-                                    <div class="back_img">
-                                        <img src="./img/no_img.jpg" alt="">
-                                    </div>
-                                    <div class="filebox bs3-primary preview-image">
-                                        <input class="upload-name" value="파일선택" disabled="disabled"
-                                            style="width: 100px;">
-                                        <label for="input_file">+</label>
-                                        <input type="file" id="input_file" class="upload-hidden">
-                                    </div>
+
+
+
                                 </div>
                             </div>
                             <div class="description">

@@ -1,0 +1,63 @@
+/* * { outline: 1px solid #ddd; } */
+
+.Wrap { width: 600px; margin: 0 auto; padding: 60px 0; } 
+.box { margin-bottom: 40px; } 
+.choice_box { border: 1px solid #ddd; padding: 6px 20px 7px 10px; } 
+.fullWidth { width: 100%; } 
+.primary { display: inline-block; background: #0075ff; color: #fff; font-size: 16px; font-weight: 400; text-align: center; width: 110px; height: 41px; line-height: 38px; border: none; outline: none; } 
+
+/* 추가된 부분 */
+/* 검색 */
+.searchbox { border: 1px solid #ddd; padding: 7px 20px 8px 10px; width: 200px; } 
+.field { width: 350px; } 
+.search_key { width: 146px; } 
+
+/* 테이블 */
+.sortArea { display: flex; margin-bottom: 10px; justify-content: space-between; } 
+.totalNum { line-height: 30px; } 
+.totalNum strong { color: tomato; } 
+.qnaArea .choice_box { font-size: 14px; padding: 3px 20px 4px 10px; width: 120px; } 
+.qnaArea button { font-size: 14px; border: 1px solid #ddd; padding: 4px 10px 5px 10px; text-align: center; background: #fff; cursor: pointer; } 
+.qna_title { text-align: left; } 
+.rock { display: inline-block; vertical-align: middle; width: 13px; height: 15px; margin: 0 4px 3px 0; font-size: 0; line-height: 0; } 
+
+.qnalist tbody tr td:nth-child(2) { text-align: left; padding-left: 10px;} 
+
+/* 글쓰기 버튼 */
+.btnArea { text-align: right; margin-bottom: 10px; } 
+
+/* 페이지 네이션 */
+/* .pagination { display: flex; justify-content: center; } 
+.pagination a { padding: 12px; } 
+.pagination a:hover { color: #0075ff; } 
+.pagination_ul { display: flex; gap: 2px; } 
+.pagination_ul li { cursor: pointer; padding: 12px; } 
+.pagination_ul li:hover { border-bottom: 4px solid #0075ff; } */
+
+/* 위에는 수정전 */
+.paginationjs-pages ul { display: flex; justify-content: center; } 
+.paginationjs-pages ul li { padding: 14px; cursor: pointer; } 
+.paginationjs-pages ul li:hover { border-bottom: 4px solid #0075ff; }
+
+table { font-size: 14px; margin-bottom: 30px; } 
+table input:disabled { background: transparent; border: none; } 
+table input { background: transparent; border: 1px solid #ddd; padding: 6px 10px 7px 10px; } 
+tr { border-bottom: 1px solid #ddd; text-align: left; } 
+th { background: #efefef; padding: 16px 0; text-align: center; } 
+th~th { border-left: 1px solid #ddd; } 
+td { padding: 10px auto; text-align: center; height: 40px; } 
+td~td { border-left: 1px solid #ddd; } 
+fieldset label { font-weight: 500; line-height: 40px; } 
+fieldset dd label { cursor: pointer; } 
+td label,input[type=radio],input[type=checkbox],input[type=submit],select { cursor: pointer; } 
+input[type=radio]~input[type=radio],input[type=checkbox]~input[type=checkbox] { margin-left: 30px; } 
+input[type=button] { cursor: pointer; } 
+p { line-height: 20px; } 
+legend { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip-path: polygon(0 0, 0 0, 0 0); } 
+fieldset { border: 4px solid rgba(100, 150, 255, 0.15); padding: 20px; } 
+
+
+/* 추가된 부분 */
+dl { width: 100%; display: flex; flex-wrap: wrap; } 
+dt { width: 80px; min-height: 30px; margin-bottom: 10px; } 
+dd { width: calc(100% - 80px); margin-bottom: 10px; } 

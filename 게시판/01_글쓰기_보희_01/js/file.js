@@ -1,5 +1,8 @@
-$(document).ready(function () {
-    // 이부분 복붙이라 제이쿼리 썼습니다.. 이후에 수정 하겠습니다.. 8^8
+window.addEventListener('DOMContentLoaded', function () {
+    // 해결해야하는 과제..
+    // [1] 3개의 버튼을 선택해도 한개의 썸네일만 올라감..
+    // [2] 파일 삭제 해야함
+
     var fileTarget = $('.filebox .upload-hidden');
 
     fileTarget.on('change', function () {
@@ -44,11 +47,11 @@ $(document).ready(function () {
             var img = $(this).siblings('.upload-display').find('img');
             img[0].style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(enable='true',sizingMethod='scale',src=\"" + imgSrc + "\")";
         }
+
+
     });
+
+
+
 });
 
-// 지금 보면 3개의 버튼을 선택해도 한개의 썸네일만 올라감..
-// 해보려고 했는데.. 스크립트 해석이 안돼서 일단 패스...
-
-// 전화번호 정규식 추가 해야함
-// 제목이랑 분야 내용 작성 안하면 안넘어가게 해야함
